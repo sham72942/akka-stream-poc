@@ -9,5 +9,7 @@ lazy val root = (project in file("."))
     name := "Akka Stream POC"
   )
 
+Compile / compile := (Compile / compile).dependsOn(Compile / scalafmtCheckAll).value
+
 resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 libraryDependencies += "com.typesafe.akka" %% "akka-stream" % AkkaVersion
